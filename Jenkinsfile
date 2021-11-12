@@ -23,7 +23,7 @@ pipeline{
             steps {
 
                 
-                    sh 'mvn test'
+                    sh 'mvn verify -Dunit-tests.skip=true'
 
                 
 
@@ -34,9 +34,12 @@ pipeline{
         stage ('Cucumber Reports') {
 
             steps {
-                cucumber buildStatus: "UNSTABLE",
-                    fileIncludePattern: "**/*.json",
-                    jsonReportDirectory: 'target'
+//                 cucumber buildStatus: "UNSTABLE",
+//                     fileIncludePattern: "**/*.json",
+//                     jsonReportDirectory: 'target'
+		   cucumber buildStatus: null, fileIncludePattern: '**/*.json', jsonReportDirectory: 'target', sortingMethod: 'ALPHABETICAL'
+            }
+        }
 
             }
 
