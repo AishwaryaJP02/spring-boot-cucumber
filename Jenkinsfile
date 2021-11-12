@@ -38,8 +38,7 @@ pipeline{
 //                     fileIncludePattern: "**/*.json",
 //                     jsonReportDirectory: 'target'
 		   cucumber buildStatus: null, fileIncludePattern: '**/*.json', jsonReportDirectory: 'target', sortingMethod: 'ALPHABETICAL'
-            }
-        }
+
 
             }
 
